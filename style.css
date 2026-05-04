@@ -554,3 +554,18 @@ footer {
   color: #0ea5e9;
   text-decoration: underline;
 }
+
+.contact-card a.contact-link,
+.contact-card a.contact-link:visited,
+.contact-card a.contact-link:active {
+  color: #38bdf8 !important;
+}
+
+.contact-card a.contact-link i {
+  color: #38bdf8 !important;
+}
+
+.contact-card a.contact-link:hover {
+  color: #0ea5e9 !important;
+  text-decoration: underline;
+}
