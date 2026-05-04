@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Arnaud</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#accueil">Accueil</a>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header id="accueil" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Arnaud Adam</h1>
+      <p>Développeur Web en apprentissage</p>
+
+      <div class="hero-buttons">
+        <a href="#projets" class="btn hero-btn">Voir mes projets</a>
+        <a href="#contact" class="btn btn-secondary">Me contacter</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="projets">
+      <h2>Mes projets</h2>
+
+      <p class="section-intro">
+        Voici quelques projets que je réalise dans le cadre de mon apprentissage.
+      </p>
+
+      <div class="projects-grid">
+
+        <div class="card project-card">
+          <div class="project-image">
+            <img src="images/site-photographe.jpg" alt="Aperçu du site photographe">
+
+            <div class="project-overlay">
+              <span class="overlay-btn disabled">Projet en cours</span>
+            </div>
+          </div>
+
+          <span class="status">En cours</span>
+
+          <h3>Site Photographe</h3>
+          <p>Projet d’apprentissage HTML/CSS en cours de réalisation avec OpenClassrooms.</p>
+
+          <div class="tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Responsive</span>
+          </div>
+
+          <span class="btn disabled">En cours</span>
+        </div>
+
+        <div class="card">
+          <h3>Portfolio développeur</h3>
+          <p>Mon portfolio personnel, construit progressivement pour présenter mon apprentissage, mes projets et mes compétences.</p>
+
+          <div class="tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Portfolio</span>
+          </div>
+
+          <a href="#accueil" class="btn">Voir le site</a>
+        </div>
+
+        <div class="card">
+          <h3>Projet à venir</h3>
+          <p>Un prochain projet sera ajouté ici au fur et à mesure de mon apprentissage.</p>
+
+          <div class="tags">
+            <span>En cours</span>
+          </div>
+
+          <span class="btn disabled">Bientôt</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="competences">
+      <h2>Compétences</h2>
+
+      <div class="skills">
+
+        <div class="skill">
+          <p>HTML</p>
+          <div class="bar">
+            <div class="progress html"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <p>CSS</p>
+          <div class="bar">
+            <div class="progress css"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <p>JavaScript (en cours)</p>
+          <div class="bar">
+            <div class="progress js"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="apropos">
+      <h2>À propos</h2>
+
+      <div class="about-card">
+        <p>
+          Je suis actuellement en apprentissage du développement web, avec une approche basée sur la pratique et la création de projets concrets.
+        </p>
+
+        <p>
+          J’apprends progressivement les fondamentaux du web, notamment HTML et CSS, en construisant des sites simples que j’améliore au fil de mon évolution.
+        </p>
+
+        <p>
+          J’utilise aussi des outils modernes, dont l’intelligence artificielle, comme support pédagogique pour analyser mon code, corriger mes erreurs et mieux comprendre chaque étape.
+        </p>
+
+        <p>
+          Mon objectif est de devenir développeur web capable de créer des sites propres, utiles et évolutifs, avec à terme un intérêt particulier pour l’intégration de l’IA dans les interfaces web.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <div class="contact-card">
+        <p>
+          Tu peux me contacter pour échanger autour du développement web, de mes projets ou de mon apprentissage.
+        </p>
+
+        <a href="mailto:contact@arnaud.dev" class="contact-link">
+          <i class="fas fa-envelope"></i>
+          contact@arnaud.dev
+        </a>
+      </div>
+    </section>
+
+    <section id="reseaux">
+      <h2>Réseaux sociaux</h2>
+
+      <div class="socials">
+
+        <a href="https://github.com/arnaudadam" target="_blank" rel="noopener noreferrer" class="social github">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </a>
+
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social linkedin">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+
+        <a href="mailto:contact@arnaud.dev" class="social email">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Email</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 - Arnaud</p>
+  </footer>
+
+</body>
+</html>
