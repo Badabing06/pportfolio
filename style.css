@@ -569,3 +569,11 @@ footer {
   color: #0ea5e9 !important;
   text-decoration: underline;
 }
+
+.project-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
