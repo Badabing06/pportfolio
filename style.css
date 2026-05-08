@@ -596,6 +596,14 @@ section h2::after {
   transition: all var(--transition);
   overflow: hidden;
 }
+.github {
+  border-color: #ffffff40;
+}
+
+.linkedin {
+  border-color: #0a66c2;
+  color: #0a66c2;
+}
 
 /* Halo lumineux animé au survol */
 .social::before {
