@@ -3,24 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Arnaud</title>
 
+  <!-- ✅ CORRECTION 1 : Titre plus complet pour Google (SEO) -->
+  <title>Arnaud Adam — Développeur Web | Portfolio</title>
+
+  <!-- ✅ CORRECTION 1 (suite) : Meta description pour Google + auteur -->
+  <meta name="description" content="Portfolio d'Arnaud Adam, développeur web en apprentissage basé en Belgique. Projets réalisés en HTML, CSS et JavaScript.">
+  <meta name="author" content="Arnaud Adam">
+
+  <!-- ✅ CORRECTION 2 : Favicon (petite icône dans l'onglet du navigateur) -->
+  <!-- Crée ton favicon sur favicon.io et place le fichier dans ton dossier images/ -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- Font Awesome : bibliothèque d'icônes chargée depuis un serveur distant (CDN) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Ton fichier CSS (feuille de style) local -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <!-- NAVIGATION : barre de menu en haut de page -->
   <nav class="navbar">
     <div class="nav-links">
       <a href="#accueil">Accueil</a>
       <a href="#projets">Projets</a>
       <a href="#competences">Compétences</a>
       <a href="#apropos">À propos</a>
+      <!-- ✅ CORRECTION 6 : le lien Contact couvre maintenant aussi les réseaux sociaux -->
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
+  <!-- EN-TÊTE (HEADER) : section principale d'accueil -->
   <header id="accueil" class="hero">
     <div class="hero-content">
       <h1 class="hero-title">Arnaud Adam</h1>
@@ -33,8 +49,10 @@
     </div>
   </header>
 
+  <!-- CONTENU PRINCIPAL -->
   <main>
 
+    <!-- SECTION PROJETS -->
     <section id="projets">
       <h2>Mes projets</h2>
 
@@ -44,19 +62,22 @@
 
       <div class="projects-grid">
 
+        <!-- Carte projet 1 : Site Photographe -->
         <div class="card project-card">
           <div class="project-image">
-            <img src="images/site-photographe.jpg" alt="Aperçu du site photographe">
+            <!-- ✅ CORRECTION 4 : texte alt plus précis pour l'accessibilité et Google -->
+            <img src="images/site-photographe.jpg" alt="Capture d'écran du projet de site pour photographe, réalisé en HTML et CSS">
 
             <div class="project-overlay">
-              <span class="overlay-btn disabled">Projet en cours</span>
+              <!-- ✅ CORRECTION 5 : <button disabled> remplace <span class="btn disabled"> -->
+              <button class="overlay-btn" disabled>Projet en cours</button>
             </div>
           </div>
 
           <span class="status">En cours</span>
 
           <h3>Site Photographe</h3>
-          <p>Projet d’apprentissage HTML/CSS en cours de réalisation avec OpenClassrooms.</p>
+          <p>Projet d'apprentissage HTML/CSS en cours de réalisation avec OpenClassrooms.</p>
 
           <div class="tags">
             <span>HTML</span>
@@ -65,11 +86,14 @@
           </div>
 
           <div class="project-actions">
-            <span class="btn disabled">En cours</span>
-            <span class="btn disabled">Code privé</span>
+            <!-- ✅ CORRECTION 5 : vrais boutons désactivés au lieu de <span> -->
+            <button class="btn" disabled>En cours</button>
+            <button class="btn" disabled>Code privé</button>
           </div>
-      </div>
+        </div>
+        <!-- ✅ CORRECTION 7 : fermeture </div> correctement indentée -->
 
+        <!-- Carte projet 2 : Portfolio -->
         <div class="card">
           <h3>Portfolio développeur</h3>
           <p>Mon portfolio personnel, construit progressivement pour présenter mon apprentissage, mes projets et mes compétences.</p>
@@ -83,6 +107,7 @@
           <a href="#accueil" class="btn">Voir le site</a>
         </div>
 
+        <!-- Carte projet 3 : Projet à venir -->
         <div class="card">
           <h3>Projet à venir</h3>
           <p>Un prochain projet sera ajouté ici au fur et à mesure de mon apprentissage.</p>
@@ -91,12 +116,14 @@
             <span>En cours</span>
           </div>
 
-          <span class="btn disabled">Bientôt</span>
+          <!-- ✅ CORRECTION 5 : <button disabled> remplace <span class="btn disabled"> -->
+          <button class="btn" disabled>Bientôt</button>
         </div>
 
       </div>
     </section>
 
+    <!-- SECTION COMPÉTENCES -->
     <section id="competences">
       <h2>Compétences</h2>
 
@@ -126,6 +153,7 @@
       </div>
     </section>
 
+    <!-- SECTION À PROPOS -->
     <section id="apropos">
       <h2>À propos</h2>
 
@@ -135,19 +163,21 @@
         </p>
 
         <p>
-          J’apprends progressivement les fondamentaux du web, notamment HTML et CSS, en construisant des sites simples que j’améliore au fil de mon évolution.
+          J'apprends progressivement les fondamentaux du web, notamment HTML et CSS, en construisant des sites simples que j'améliore au fil de mon évolution.
         </p>
 
         <p>
-          J’utilise aussi des outils modernes, dont l’intelligence artificielle, comme support pédagogique pour analyser mon code, corriger mes erreurs et mieux comprendre chaque étape.
+          J'utilise aussi des outils modernes, dont l'intelligence artificielle, comme support pédagogique pour analyser mon code, corriger mes erreurs et mieux comprendre chaque étape.
         </p>
 
         <p>
-          Mon objectif est de devenir développeur web capable de créer des sites propres, utiles et évolutifs, avec à terme un intérêt particulier pour l’intégration de l’IA dans les interfaces web.
+          Mon objectif est de devenir développeur web capable de créer des sites propres, utiles et évolutifs, avec à terme un intérêt particulier pour l'intégration de l'IA dans les interfaces web.
         </p>
       </div>
     </section>
 
+    <!-- ✅ CORRECTION 6 : Section Contact et Réseaux fusionnées en une seule section -->
+    <!-- Plus propre, plus professionnel, et cohérent avec le menu de navigation -->
     <section id="contact">
       <h2>Contact</h2>
 
@@ -160,31 +190,31 @@
           <i class="fa-solid fa-envelope"></i>
           contact@a-adam.be
         </a>
-      </div>
-    </section>
 
-    <section id="reseaux">
-      <h2>Réseaux sociaux</h2>
+        <!-- Réseaux sociaux intégrés directement dans la section Contact -->
+        <div class="socials">
 
-      <div class="socials">
+          <a href="https://github.com/Adam-Arnaud" target="_blank" rel="noopener noreferrer" class="social github">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
 
-        <a href="https://github.com/Adam-Arnaud" target="_blank" rel="noopener noreferrer" class="social github">
-          <i class="fa-brands fa-github"></i>
-          <span>GitHub</span>
-        </a>
+          <!-- ✅ CORRECTION 3 : remplace /in/arnaud-adam/ par ton vrai identifiant LinkedIn -->
+          <a href="https://www.linkedin.com/in/arnaud-adam-331537408/" target="_blank" rel="noopener noreferrer" class="social linkedin">
+            <i class="fa-brands fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
 
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social linkedin">
-          <i class="fa-brands fa-linkedin"></i>
-          <span>LinkedIn</span>
-        </a>
-
+        </div>
       </div>
     </section>
 
   </main>
 
+  <!-- PIED DE PAGE (FOOTER) -->
+  <!-- ✅ CORRECTION 8 : Nom complet + spécialité dans le footer -->
   <footer>
-    <p>© 2026 - Arnaud</p>
+    <p>© 2026 Arnaud Adam — Développeur Web</p>
   </footer>
 
 </body>

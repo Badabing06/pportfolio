@@ -1,44 +1,90 @@
-/* RESET */
+/* ============================================
+   VARIABLES CSS (CUSTOM PROPERTIES)
+   Toutes les couleurs et valeurs réutilisables
+   sont définies ici, en un seul endroit.
+   Pour changer la couleur principale de tout
+   le site, il suffit de modifier --couleur-principale.
+   ============================================ */
+:root {
+  --couleur-principale:     #38bdf8;  /* bleu clair — couleur accent */
+  --couleur-principale-fonce: #0ea5e9; /* bleu plus foncé */
+  --bg-sombre:              #0f172a;  /* fond principal très sombre */
+  --bg-moyen:               #1e293b;  /* fond des cartes */
+  --bg-nav:      rgba(2, 6, 23, 0.95); /* fond de la barre de navigation */
+  --bg-footer:              #0b1220;  /* fond du pied de page */
+  --bordure:                #334155;  /* couleur des bordures */
+  --texte:                  #e2e8f0;  /* texte principal clair */
+  --texte-discret:          #94a3b8;  /* texte secondaire, plus gris */
+  --texte-carte:            #cbd5e1;  /* texte dans les cartes */
+  --transition:          0.3s ease;   /* durée et style des animations */
+  --rayon-carte:               15px;  /* arrondi des coins des cartes */
+}
+
+
+/* ============================================
+   RESET (remise à zéro)
+   Supprime les marges et espacements par défaut
+   que chaque navigateur applique différemment.
+   ============================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* box-sizing: border-box = le padding (marge intérieure)
+     et la bordure sont inclus dans la largeur totale de l'élément.
+     Sans ça, un élément de 200px + 20px de padding = 220px, ce qui
+     casse les mises en page. Avec ça, ça reste 200px. */
 }
 
-/* GLOBAL */
+
+/* ============================================
+   GLOBAL
+   Styles de base qui s'appliquent à toute la page
+   ============================================ */
 html {
   scroll-behavior: smooth;
+  /* smooth = défilement doux quand on clique sur un lien d'ancrage (#section) */
 }
 
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: radial-gradient(circle at top, #1e293b, #0f172a);
-  color: #e2e8f0;
+  background: radial-gradient(circle at top, var(--bg-moyen), var(--bg-sombre));
+  color: var(--texte);
   line-height: 1.6;
+  /* line-height (hauteur de ligne) : espace entre les lignes de texte.
+     1.6 = 60% de plus que la taille du texte — confortable à lire. */
 }
 
 h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.5px;
+  /* letter-spacing (espacement des lettres) : légèrement écarté pour plus de lisibilité */
 }
 
-/* NAV */
+
+/* ============================================
+   BARRE DE NAVIGATION (NAV)
+   ============================================ */
 .navbar {
   position: sticky;
+  /* sticky = le menu reste collé en haut quand on fait défiler la page */
   top: 0;
   display: flex;
   justify-content: center;
   padding: 14px 20px;
-  background: rgba(2, 6, 23, 0.95);
+  background: var(--bg-nav);
   backdrop-filter: blur(10px);
+  /* backdrop-filter: blur = effet "verre dépoli" sur la barre de navigation */
   border-bottom: 1px solid rgba(148, 163, 184, 0.15);
   z-index: 1000;
+  /* z-index = priorité d'empilement. 1000 = la nav reste au-dessus de tout */
 }
 
 .nav-links {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
+  /* flex-wrap: wrap = les liens reviennent à la ligne si l'écran est trop petit */
   justify-content: center;
 }
 
@@ -50,14 +96,15 @@ h1, h2, h3 {
   font-size: 0.95rem;
   padding: 8px 12px;
   border-radius: 10px;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
 .nav-links a:hover {
-  color: #38bdf8;
+  color: var(--couleur-principale);
   background: rgba(56, 189, 248, 0.08);
 }
 
+/* Ligne animée sous les liens du menu au survol */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -65,27 +112,34 @@ h1, h2, h3 {
   height: 2px;
   left: 12px;
   bottom: 4px;
-  background: #38bdf8;
-  transition: 0.3s ease;
+  background: var(--couleur-principale);
+  transition: var(--transition);
 }
 
 .nav-links a:hover::after {
   width: calc(100% - 24px);
+  /* calc() = calcul CSS. 100% de la largeur du lien, moins 24px de padding (12px de chaque côté) */
 }
 
-/* HERO */
+
+/* ============================================
+   SECTION HÉRO (EN-TÊTE PRINCIPALE)
+   Grande section d'accueil avec le nom et les boutons
+   ============================================ */
 .hero {
   min-height: 90vh;
+  /* vh = viewport height (hauteur de la fenêtre). 90vh = 90% de la hauteur visible. */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(circle at top, #1e293b, #0f172a);
+  background: radial-gradient(circle at top, var(--bg-moyen), var(--bg-sombre));
   position: relative;
   overflow: hidden;
   padding: 70px 20px;
 }
 
+/* Halo lumineux décoratif en arrière-plan */
 .hero::before {
   content: "";
   position: absolute;
@@ -95,25 +149,30 @@ h1, h2, h3 {
   top: -100px;
   left: -100px;
   filter: blur(80px);
+  /* pointer-events: none est implicite car ::before n'intercepte pas les clics ici */
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
+  /* z-index: 1 pour que le contenu soit au-dessus du halo ::before */
 }
 
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: 15px;
-  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-  -webkit-background-clip: text;
+  /* Dégradé de couleur appliqué au texte */
+  background: linear-gradient(90deg, var(--couleur-principale), var(--couleur-principale-fonce));
+  -webkit-background-clip: text;  /* pour Chrome et Safari anciens */
+  background-clip: text;          /* ✅ CORRECTION 5 : version standard ajoutée */
   -webkit-text-fill-color: transparent;
+  color: transparent;
   animation: fadeUp 0.9s ease forwards;
 }
 
 .hero-content p {
   font-size: 1.2rem;
-  color: #94a3b8;
+  color: var(--texte-discret);
   margin-bottom: 25px;
   opacity: 0;
   animation: fadeUp 0.9s ease forwards;
@@ -130,7 +189,10 @@ h1, h2, h3 {
   animation-delay: 0.4s;
 }
 
-/* SECTIONS */
+
+/* ============================================
+   SECTIONS (mise en page générale)
+   ============================================ */
 section {
   max-width: 1000px;
   margin: auto;
@@ -143,11 +205,12 @@ section h2 {
   position: relative;
 }
 
+/* Trait décoratif sous les titres de section */
 section h2::after {
   content: "";
   width: 50px;
   height: 3px;
-  background: #38bdf8;
+  background: var(--couleur-principale);
   position: absolute;
   left: 0;
   bottom: -10px;
@@ -155,27 +218,34 @@ section h2::after {
 }
 
 .section-intro {
-  color: #94a3b8;
+  color: var(--texte-discret);
   margin-bottom: 20px;
 }
 
-/* PROJETS */
+
+/* ============================================
+   GRILLE DE PROJETS
+   ============================================ */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* auto-fit = autant de colonnes que possible
+     minmax(250px, 1fr) = chaque colonne fait au moins 250px, au plus 1 fraction de l'espace */
   gap: 20px;
 }
 
+/* CARTE (card) */
 .card {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #1e293b, #0f172a);
-  border: 1px solid #334155;
-  border-radius: 15px;
+  background: linear-gradient(145deg, var(--bg-moyen), var(--bg-sombre));
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-carte);
   padding: 20px;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
+/* Halo lumineux décoratif dans le coin supérieur droit de chaque carte */
 .card::before {
   content: "";
   position: absolute;
@@ -185,7 +255,7 @@ section h2::after {
   top: -60px;
   right: -60px;
   opacity: 0;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
 .card:hover {
@@ -198,49 +268,59 @@ section h2::after {
 }
 
 .card p {
-  color: #cbd5e1;
+  color: var(--texte-carte);
   margin-top: 8px;
 }
 
+/* Zone image du projet */
 .project-image {
   position: relative;
   height: 180px;
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 15px;
-  background: #0f172a;
+  background: var(--bg-sombre);
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* object-fit: cover = l'image remplit toute la zone sans se déformer,
+     en coupant les bords si nécessaire. Comme "recadrer" une photo. */
   transition: 0.4s ease;
 }
 
+/* Superposition (overlay) qui apparaît au survol de la carte projet */
 .project-overlay {
   position: absolute;
   inset: 0;
+  /* inset: 0 = top: 0; right: 0; bottom: 0; left: 0; — couvre toute la zone */
   background: rgba(15, 23, 42, 0.85);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
+/* ✅ CORRECTION 3 : styles adaptés pour <button> */
 .overlay-btn {
   padding: 10px 18px;
-  background: #38bdf8;
-  color: #0f172a;
+  background: var(--couleur-principale);
+  color: var(--bg-sombre);
+  border: none;           /* supprime la bordure native du bouton */
   border-radius: 10px;
-  text-decoration: none;
+  font-family: inherit;   /* hérite de la police du reste de la page */
+  font-size: 1rem;
   font-weight: bold;
+  cursor: not-allowed;    /* curseur "interdit" car bouton désactivé */
   transform: translateY(10px);
   opacity: 0;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
+/* Animation au survol de la carte projet */
 .project-card:hover img {
   transform: scale(1.1);
 }
@@ -254,21 +334,23 @@ section h2::after {
   transform: translateY(0);
 }
 
+/* Badge de statut (ex: "En cours") */
 .status {
   display: inline-block;
   margin-bottom: 12px;
   padding: 5px 10px;
   background: rgba(56, 189, 248, 0.12);
-  color: #38bdf8;
+  color: var(--couleur-principale);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
 }
 
+/* Étiquettes de technologie (HTML, CSS, etc.) */
 .tags span {
   display: inline-block;
-  background: #334155;
+  background: var(--bordure);
   padding: 5px 10px;
   margin-right: 5px;
   margin-top: 10px;
@@ -276,17 +358,35 @@ section h2::after {
   font-size: 0.75rem;
 }
 
-/* BOUTONS */
+/* Ligne de boutons d'action en bas des cartes projet */
+.project-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+/* ============================================
+   BOUTONS
+   ============================================ */
+
+/* ✅ CORRECTION 3 : ajout de border, font-family, font-size, cursor
+   pour que les <button> ressemblent aux <a class="btn"> */
 .btn {
   display: inline-block;
   margin-top: 15px;
   padding: 10px 18px;
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  color: #0f172a;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-principale-fonce));
+  color: var(--bg-sombre);
+  border: none;
   border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
   text-decoration: none;
   font-weight: bold;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: all var(--transition);
   box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
 }
 
@@ -299,10 +399,11 @@ section h2::after {
   transform: scale(0.97);
 }
 
+/* Bouton secondaire (contour seulement, fond transparent) */
 .btn-secondary {
   background: transparent;
-  color: #38bdf8;
-  border: 1px solid #38bdf8;
+  color: var(--couleur-principale);
+  border: 1px solid var(--couleur-principale);
   box-shadow: none;
 }
 
@@ -311,12 +412,25 @@ section h2::after {
   box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
 }
 
-.disabled {
+/* ✅ CORRECTION 4 : les boutons désactivés ne réagissent plus au survol */
+.btn:disabled,
+.btn.disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-/* COMPÉTENCES */
+.btn:disabled:hover,
+.btn.disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* ============================================
+   SECTION COMPÉTENCES
+   ============================================ */
 .skills {
   margin-top: 20px;
 }
@@ -325,14 +439,16 @@ section h2::after {
   margin-bottom: 18px;
 }
 
+/* Barre de progression (fond gris) */
 .bar {
   width: 100%;
   height: 10px;
-  background: #334155;
+  background: var(--bordure);
   border-radius: 10px;
   overflow: hidden;
 }
 
+/* Remplissage coloré de la barre */
 .progress {
   height: 100%;
   border-radius: 10px;
@@ -340,28 +456,31 @@ section h2::after {
 
 .progress.html {
   width: 80%;
-  background: #f97316;
+  background: #f97316; /* orange HTML */
 }
 
 .progress.css {
   width: 70%;
-  background: #38bdf8;
+  background: var(--couleur-principale); /* bleu CSS */
 }
 
 .progress.js {
   width: 30%;
-  background: #facc15;
+  background: #facc15; /* jaune JavaScript */
 }
 
-/* À PROPOS */
+
+/* ============================================
+   SECTION À PROPOS
+   ============================================ */
 .about-card {
-  background: #1e293b;
-  border-left: 4px solid #38bdf8;
-  border-radius: 15px;
+  background: var(--bg-moyen);
+  border-left: 4px solid var(--couleur-principale);
+  border-radius: var(--rayon-carte);
   padding: 25px;
   margin-top: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
 .about-card:hover {
@@ -371,48 +490,56 @@ section h2::after {
 
 .about-card p {
   margin-bottom: 15px;
-  color: #cbd5e1;
+  color: var(--texte-carte);
 }
 
 .about-card p:last-child {
   margin-bottom: 0;
 }
 
-/* CONTACT */
+
+/* ============================================
+   SECTION CONTACT + RÉSEAUX SOCIAUX
+   (fusionnés en une seule section dans le HTML)
+   ============================================ */
 .contact-card {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 15px;
+  background: var(--bg-moyen);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-carte);
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .contact-card p {
-  color: #cbd5e1;
+  color: var(--texte-carte);
   margin-bottom: 15px;
 }
 
+/* ✅ CORRECTION 2 : une seule règle claire, suppression des 2 doublons
+   et du !important qui se trouvaient à la fin du fichier original */
 .contact-link {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #38bdf8;
+  color: var(--couleur-principale);
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s ease;
+  transition: var(--transition);
+  margin-bottom: 20px; /* espace avant les boutons de réseaux sociaux */
 }
 
 .contact-link:hover {
-  color: #0ea5e9;
+  color: var(--couleur-principale-fonce);
   text-decoration: underline;
 }
 
-/* RÉSEAUX */
+/* Boutons de réseaux sociaux */
 .socials {
   display: flex;
-  justify-content: center;
   gap: 15px;
   flex-wrap: wrap;
+  margin-top: 20px;
+  /* margin-top (marge extérieure haute) : espace entre l'email et les boutons sociaux */
 }
 
 .social {
@@ -422,14 +549,15 @@ section h2::after {
   justify-content: center;
   gap: 10px;
   padding: 12px 20px;
-  background: #1e293b;
+  background: var(--bg-moyen);
   border-radius: 12px;
   text-decoration: none;
-  color: #e2e8f0;
-  transition: all 0.3s ease;
+  color: var(--texte);
+  transition: all var(--transition);
   overflow: hidden;
 }
 
+/* Halo lumineux animé au survol */
 .social::before {
   content: "";
   position: absolute;
@@ -443,13 +571,14 @@ section h2::after {
   z-index: 0;
 }
 
+/* Bordure lumineuse animée au survol */
 .social::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 12px;
   padding: 1px;
-  background: linear-gradient(120deg, transparent, #38bdf8, transparent);
+  background: linear-gradient(120deg, transparent, var(--couleur-principale), transparent);
   background-size: 200% 200%;
   opacity: 0;
   transition: 0.4s ease;
@@ -490,16 +619,25 @@ section h2::after {
   background: #0a66c2;
 }
 
-/* FOOTER */
+
+/* ============================================
+   PIED DE PAGE (FOOTER)
+   ============================================ */
 footer {
   text-align: center;
   padding: 40px;
-  background: #0b1220;
-  color: #94a3b8;
+  background: var(--bg-footer);
+  color: var(--texte-discret);
   margin-top: 50px;
 }
 
-/* ANIMATIONS */
+
+/* ============================================
+   ANIMATIONS (keyframes)
+   keyframes = images clés, les étapes d'une animation
+   ============================================ */
+
+/* Apparition depuis le bas avec fondu */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -512,6 +650,7 @@ footer {
   }
 }
 
+/* Animation de la bordure lumineuse des boutons sociaux */
 @keyframes borderGlow {
   0% {
     background-position: 0% 50%;
@@ -522,7 +661,34 @@ footer {
   }
 }
 
-/* RESPONSIVE */
+
+/* ============================================
+   RESPONSIVE (adaptatif)
+   Adaptations selon la taille de l'écran
+   ============================================ */
+
+/* ✅ CORRECTION 6 : ajout d'un breakpoint tablette (768px) */
+/* Tablette : écrans de 601px à 768px de large */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  section {
+    padding: 50px 20px;
+  }
+}
+
+/* Mobile : écrans jusqu'à 600px de large (téléphones) */
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2.4rem;
@@ -532,48 +698,8 @@ footer {
     font-size: 1rem;
   }
 
-  .nav-links {
-    gap: 10px;
-  }
-
   .nav-links a {
     font-size: 0.85rem;
     padding: 6px 8px;
   }
 }
-
-#contact .contact-link {
-  color: #38bdf8;
-}
-
-#contact .contact-link i {
-  color: #38bdf8;
-}
-
-#contact .contact-link:hover {
-  color: #0ea5e9;
-  text-decoration: underline;
-}
-
-.contact-card a.contact-link,
-.contact-card a.contact-link:visited,
-.contact-card a.contact-link:active {
-  color: #38bdf8 !important;
-}
-
-.contact-card a.contact-link i {
-  color: #38bdf8 !important;
-}
-
-.contact-card a.contact-link:hover {
-  color: #0ea5e9 !important;
-  text-decoration: underline;
-}
-
-.project-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
