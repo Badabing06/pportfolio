@@ -431,44 +431,80 @@ section h2::after {
 /* ============================================
    SECTION COMPÉTENCES
    ============================================ */
-.skills {
-  margin-top: 20px;
+/* COMPÉTENCES - Cartes */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
-.skill {
-  margin-bottom: 18px;
-}
-
-/* Barre de progression (fond gris) */
-.bar {
-  width: 100%;
-  height: 10px;
-  background: var(--bordure);
-  border-radius: 10px;
+.skill-card {
+  position: relative;
   overflow: hidden;
+  background: linear-gradient(145deg, var(--bg-moyen), var(--bg-sombre));
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-carte);
+  padding: 25px 20px;
+  text-align: center;
+  transition: var(--transition);
 }
 
-/* Remplissage coloré de la barre */
-.progress {
-  height: 100%;
-  border-radius: 10px;
+/* Halo lumineux au survol — même style que tes cartes projet */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1), transparent);
+  top: -50px;
+  right: -50px;
+  opacity: 0;
+  transition: var(--transition);
 }
 
-.progress.html {
-  width: 80%;
-  background: #f97316; /* orange HTML */
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-color: var(--couleur-principale);
 }
 
-.progress.css {
-  width: 70%;
-  background: var(--couleur-principale); /* bleu CSS */
+.skill-card:hover::before {
+  opacity: 1;
 }
 
-.progress.js {
-  width: 30%;
-  background: #facc15; /* jaune JavaScript */
+/* Icône Font Awesome */
+.skill-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
 }
 
+.skill-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: var(--texte);
+}
+
+/* Badge de niveau — même style que ton badge "En cours" sur les projets */
+.skill-level {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--couleur-principale);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.skill-card p {
+  font-size: 0.85rem;
+  color: var(--texte-discret);
+  line-height: 1.5;
+  margin-top: 10px;
+}
 
 /* ============================================
    SECTION À PROPOS
