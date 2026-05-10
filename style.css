@@ -314,7 +314,7 @@ section h2::after {
   font-family: inherit;   /* hérite de la police du reste de la page */
   font-size: 1rem;
   font-weight: bold;
-  cursor: not-allowed;    /* curseur "interdit" car bouton désactivé */
+  cursor: pointer;    /* curseur "interdit" car bouton désactivé */
   transform: translateY(10px);
   opacity: 0;
   transition: var(--transition);
