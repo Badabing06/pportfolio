@@ -734,7 +734,7 @@ footer {
   }
 
   .nav-links {
-    gap: 10px;
+    gap: 8px;
   }
 
   .nav-links a {
@@ -757,8 +757,28 @@ footer {
     font-size: 1rem;
   }
 
+  .nav-links {
+    gap: 8px;
+  }
+
   .nav-links a {
-    font-size: 0.85rem;
-    padding: 6px 8px;
+    font-size: 0.78rem;
+    padding: 5px 6px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .skill-level {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .skill-card {
+    padding: 20px 15px;
   }
 }
