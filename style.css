@@ -690,6 +690,19 @@ footer {
   margin-top: 50px;
 }
 
+/* EFFET TYPING */
+.typing {
+  border-right: 2px solid var(--couleur-principale);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: clignotement 0.7s step-end infinite;
+}
+
+@keyframes clignotement {
+  0%, 100% { border-color: var(--couleur-principale); }
+  50% { border-color: transparent; }
+}
+
 
 /* ============================================
    ANIMATIONS (keyframes)
