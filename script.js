@@ -1,5 +1,5 @@
 // Animation typing sur le sous-titre
-const texte = "Développeur Web en apprentissage";
+const texte = "Développeur web junior en reconversion";
 const element = document.querySelector(".typing");
 let index = 0;
 
