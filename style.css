@@ -753,6 +753,32 @@ footer {
   }
 }
 
+/* ============================================
+   CORRECTION VISIBILITÉ LIENS
+   ============================================ */
+
+.about-card a,
+.legal-page a,
+footer a {
+  color: var(--couleur-principale);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.about-card a:hover,
+.legal-page a:hover,
+footer a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+.about-card a:visited,
+.legal-page a:visited,
+footer a:visited {
+  color: var(--couleur-principale);
+}
+
 
 /* ============================================
    RESPONSIVE (adaptatif)
