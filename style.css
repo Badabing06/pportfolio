@@ -61,6 +61,26 @@ h1, h2, h3 {
   /* letter-spacing (espacement des lettres) : légèrement écarté pour plus de lisibilité */
 }
 
+/* ============================================
+   LIENS GÉNÉRAUX
+   Rend les liens visibles sur fond sombre
+   ============================================ */
+a {
+  color: var(--couleur-principale);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--couleur-principale);
+}
+
 
 /* ============================================
    BARRE DE NAVIGATION (NAV)
