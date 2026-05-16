@@ -1,28 +1,27 @@
 /* ============================================
-   VARIABLES CSS (CUSTOM PROPERTIES)
-   Toutes les couleurs et valeurs réutilisables
-   sont définies ici, en un seul endroit.
-   Pour changer la couleur principale de tout
-   le site, il suffit de modifier --couleur-principale.
+   VARIABLES CSS
+   Toutes les couleurs et valeurs réutilisables.
+   Pour changer l'accent du site, modifie
+   uniquement --couleur-principale ici.
    ============================================ */
 :root {
-  --couleur-principale:     #38bdf8;  /* bleu clair — couleur accent */
+  --couleur-principale:       #38bdf8; /* bleu clair — couleur accent */
   --couleur-principale-fonce: #0ea5e9; /* bleu plus foncé */
-  --bg-sombre:              #0f172a;  /* fond principal très sombre */
-  --bg-moyen:               #1e293b;  /* fond des cartes */
-  --bg-nav:      rgba(2, 6, 23, 0.95); /* fond de la barre de navigation */
-  --bg-footer:              #0b1220;  /* fond du pied de page */
-  --bordure:                #334155;  /* couleur des bordures */
-  --texte:                  #e2e8f0;  /* texte principal clair */
-  --texte-discret:          #94a3b8;  /* texte secondaire, plus gris */
-  --texte-carte:            #cbd5e1;  /* texte dans les cartes */
-  --transition:          0.3s ease;   /* durée et style des animations */
-  --rayon-carte:               15px;  /* arrondi des coins des cartes */
+  --bg-sombre:                #0f172a; /* fond principal très sombre */
+  --bg-moyen:                 #1e293b; /* fond des cartes */
+  --bg-nav:        rgba(2, 6, 23, 0.95); /* fond de la barre de navigation */
+  --bg-footer:                #0b1220; /* fond du pied de page */
+  --bordure:                  #334155; /* couleur des bordures */
+  --texte:                    #e2e8f0; /* texte principal clair */
+  --texte-discret:            #94a3b8; /* texte secondaire, plus gris */
+  --texte-carte:              #cbd5e1; /* texte dans les cartes */
+  --transition:            0.3s ease; /* durée et style des animations */
+  --rayon-carte:                 15px; /* arrondi des coins des cartes */
 }
 
 
 /* ============================================
-   RESET (remise à zéro)
+   RESET
    Supprime les marges et espacements par défaut
    que chaque navigateur applique différemment.
    ============================================ */
@@ -30,20 +29,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* box-sizing: border-box = le padding (marge intérieure)
-     et la bordure sont inclus dans la largeur totale de l'élément.
-     Sans ça, un élément de 200px + 20px de padding = 220px, ce qui
-     casse les mises en page. Avec ça, ça reste 200px. */
+  /* box-sizing: border-box = le padding et la bordure sont inclus
+     dans la largeur totale de l'élément. Sans ça, les mises en page
+     se cassent facilement. */
 }
 
 
 /* ============================================
-   GLOBAL
-   Styles de base qui s'appliquent à toute la page
+   BASE
+   Styles globaux qui s'appliquent à toute la page
    ============================================ */
 html {
   scroll-behavior: smooth;
-  /* smooth = défilement doux quand on clique sur un lien d'ancrage (#section) */
+  /* défilement doux quand on clique sur un lien d'ancrage (#section) */
 }
 
 body {
@@ -51,19 +49,16 @@ body {
   background: radial-gradient(circle at top, var(--bg-moyen), var(--bg-sombre));
   color: var(--texte);
   line-height: 1.6;
-  /* line-height (hauteur de ligne) : espace entre les lignes de texte.
-     1.6 = 60% de plus que la taille du texte — confortable à lire. */
 }
 
 h1, h2, h3 {
   font-weight: 600;
   letter-spacing: 0.5px;
-  /* letter-spacing (espacement des lettres) : légèrement écarté pour plus de lisibilité */
 }
 
+
 /* ============================================
-   LIENS GÉNÉRAUX
-   Rend les liens visibles sur fond sombre
+   LIENS
    ============================================ */
 a {
   color: var(--couleur-principale);
@@ -72,39 +67,35 @@ a {
   transition: var(--transition);
 }
 
+a:visited {
+  color: var(--couleur-principale);
+}
+
 a:hover {
   color: #7dd3fc;
   text-decoration: underline;
 }
 
-a:visited {
-  color: var(--couleur-principale);
-}
-
 
 /* ============================================
-   BARRE DE NAVIGATION (NAV)
+   NAVIGATION
    ============================================ */
 .navbar {
   position: sticky;
-  /* sticky = le menu reste collé en haut quand on fait défiler la page */
   top: 0;
   display: flex;
   justify-content: center;
   padding: 14px 20px;
   background: var(--bg-nav);
   backdrop-filter: blur(10px);
-  /* backdrop-filter: blur = effet "verre dépoli" sur la barre de navigation */
   border-bottom: 1px solid rgba(148, 163, 184, 0.15);
   z-index: 1000;
-  /* z-index = priorité d'empilement. 1000 = la nav reste au-dessus de tout */
 }
 
 .nav-links {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
-  /* flex-wrap: wrap = les liens reviennent à la ligne si l'écran est trop petit */
   justify-content: center;
 }
 
@@ -119,12 +110,17 @@ a:visited {
   transition: var(--transition);
 }
 
+.nav-links a:visited {
+  color: #f8fafc;
+}
+
 .nav-links a:hover {
   color: var(--couleur-principale);
   background: rgba(56, 189, 248, 0.08);
+  text-decoration: none;
 }
 
-/* Ligne animée sous les liens du menu au survol */
+/* Ligne animée sous les liens au survol */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -138,17 +134,15 @@ a:visited {
 
 .nav-links a:hover::after {
   width: calc(100% - 24px);
-  /* calc() = calcul CSS. 100% de la largeur du lien, moins 24px de padding (12px de chaque côté) */
 }
 
 
 /* ============================================
-   SECTION HÉRO (EN-TÊTE PRINCIPALE)
-   Grande section d'accueil avec le nom et les boutons
+   SECTION HÉRO
+   Grande zone d'accueil avec le nom et les boutons
    ============================================ */
 .hero {
   min-height: 90vh;
-  /* vh = viewport height (hauteur de la fenêtre). 90vh = 90% de la hauteur visible. */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,22 +163,20 @@ a:visited {
   top: -100px;
   left: -100px;
   filter: blur(80px);
-  /* pointer-events: none est implicite car ::before n'intercepte pas les clics ici */
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  /* z-index: 1 pour que le contenu soit au-dessus du halo ::before */
 }
 
+/* Nom principal avec dégradé de couleur */
 .hero-title {
   font-size: 3.5rem;
   margin-bottom: 15px;
-  /* Dégradé de couleur appliqué au texte */
   background: linear-gradient(90deg, var(--couleur-principale), var(--couleur-principale-fonce));
-  -webkit-background-clip: text;  /* pour Chrome et Safari anciens */
-  background-clip: text;          /* ✅ CORRECTION 5 : version standard ajoutée */
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
   animation: fadeUp 0.9s ease forwards;
@@ -195,8 +187,7 @@ a:visited {
   color: var(--texte-discret);
   margin-bottom: 25px;
   opacity: 0;
-  animation: fadeUp 0.9s ease forwards;
-  animation-delay: 0.2s;
+  animation: fadeUp 0.9s ease 0.2s forwards;
 }
 
 .hero-buttons {
@@ -205,8 +196,7 @@ a:visited {
   gap: 15px;
   flex-wrap: wrap;
   opacity: 0;
-  animation: fadeUp 0.9s ease forwards;
-  animation-delay: 0.4s;
+  animation: fadeUp 0.9s ease 0.4s forwards;
 }
 
 
@@ -244,17 +234,78 @@ section h2::after {
 
 
 /* ============================================
-   GRILLE DE PROJETS
+   BOUTONS
    ============================================ */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  /* auto-fit = autant de colonnes que possible
-     minmax(250px, 1fr) = chaque colonne fait au moins 250px, au plus 1 fraction de l'espace */
-  gap: 20px;
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-principale-fonce));
+  color: #0f172a;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
 }
 
-/* CARTE (card) */
+.btn:visited {
+  color: #0f172a;
+}
+
+.btn:hover {
+  color: #0f172a;
+  text-decoration: none;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Focus clavier — accessibilité */
+.btn:focus-visible {
+  outline: 3px solid var(--couleur-principale);
+  outline-offset: 3px;
+}
+
+/* Bouton secondaire (contour, fond transparent) */
+.btn-secondary {
+  background: transparent;
+  color: var(--couleur-principale);
+  border: 1px solid var(--couleur-principale);
+  box-shadow: none;
+}
+
+.btn-secondary:visited {
+  color: var(--couleur-principale);
+}
+
+.btn-secondary:hover {
+  color: var(--couleur-principale);
+  background: rgba(56, 189, 248, 0.1);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+}
+
+/* Boutons désactivés — ne réagissent pas au survol */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+
+/* ============================================
+   CARTES (card)
+   ============================================ */
 .card {
   position: relative;
   overflow: hidden;
@@ -265,7 +316,7 @@ section h2::after {
   transition: var(--transition);
 }
 
-/* Halo lumineux décoratif dans le coin supérieur droit de chaque carte */
+/* Halo lumineux dans le coin supérieur droit au survol */
 .card::before {
   content: "";
   position: absolute;
@@ -292,6 +343,16 @@ section h2::after {
   margin-top: 8px;
 }
 
+
+/* ============================================
+   GRILLE ET CARTES DE PROJETS
+   ============================================ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
 /* Zone image du projet */
 .project-image {
   position: relative;
@@ -306,16 +367,13 @@ section h2::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* object-fit: cover = l'image remplit toute la zone sans se déformer,
-     en coupant les bords si nécessaire. Comme "recadrer" une photo. */
   transition: 0.4s ease;
 }
 
-/* Superposition (overlay) qui apparaît au survol de la carte projet */
+/* Superposition au survol de la carte projet */
 .project-overlay {
   position: absolute;
   inset: 0;
-  /* inset: 0 = top: 0; right: 0; bottom: 0; left: 0; — couvre toute la zone */
   background: rgba(15, 23, 42, 0.85);
   display: flex;
   justify-content: center;
@@ -324,23 +382,32 @@ section h2::after {
   transition: var(--transition);
 }
 
-/* ✅ CORRECTION 3 : styles adaptés pour <button> */
 .overlay-btn {
   padding: 10px 18px;
   background: var(--couleur-principale);
   color: var(--bg-sombre);
-  border: none;           /* supprime la bordure native du bouton */
+  border: none;
   border-radius: 10px;
-  font-family: inherit;   /* hérite de la police du reste de la page */
+  font-family: inherit;
   font-size: 1rem;
   font-weight: bold;
-  cursor: pointer;    /* curseur "interdit" car bouton désactivé */
+  cursor: pointer;
   transform: translateY(10px);
   opacity: 0;
   transition: var(--transition);
+  text-decoration: none;
 }
 
-/* Animation au survol de la carte projet */
+.overlay-btn:visited {
+  color: var(--bg-sombre);
+}
+
+.overlay-btn:hover {
+  color: var(--bg-sombre);
+  text-decoration: none;
+}
+
+/* Animations au survol de la carte projet */
 .project-card:hover img {
   transform: scale(1.1);
 }
@@ -354,7 +421,7 @@ section h2::after {
   transform: translateY(0);
 }
 
-/* Badge de statut (ex: "En cours") */
+/* Badge de statut (ex: "En ligne") */
 .status {
   display: inline-block;
   margin-bottom: 12px;
@@ -371,6 +438,7 @@ section h2::after {
 .tags span {
   display: inline-block;
   background: var(--bordure);
+  color: var(--texte);
   padding: 5px 10px;
   margin-right: 5px;
   margin-top: 10px;
@@ -378,7 +446,7 @@ section h2::after {
   font-size: 0.75rem;
 }
 
-/* Ligne de boutons d'action en bas des cartes projet */
+/* Boutons d'action en bas des cartes projet */
 .project-actions {
   display: flex;
   gap: 12px;
@@ -388,70 +456,8 @@ section h2::after {
 
 
 /* ============================================
-   BOUTONS
-   ============================================ */
-
-/* ✅ CORRECTION 3 : ajout de border, font-family, font-size, cursor
-   pour que les <button> ressemblent aux <a class="btn"> */
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 18px;
-  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-principale-fonce));
-  color: var(--bg-sombre);
-  border: none;
-  border-radius: 10px;
-  font-family: inherit;
-  font-size: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all var(--transition);
-  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
-}
-
-.btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
-}
-
-.btn:active {
-  transform: scale(0.97);
-}
-
-/* Bouton secondaire (contour seulement, fond transparent) */
-.btn-secondary {
-  background: transparent;
-  color: var(--couleur-principale);
-  border: 1px solid var(--couleur-principale);
-  box-shadow: none;
-}
-
-.btn-secondary:hover {
-  background: rgba(56, 189, 248, 0.1);
-  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
-}
-
-/* ✅ CORRECTION 4 : les boutons désactivés ne réagissent plus au survol */
-.btn:disabled,
-.btn.disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.btn:disabled:hover,
-.btn.disabled:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-
-/* ============================================
    SECTION COMPÉTENCES
    ============================================ */
-/* COMPÉTENCES - Cartes */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -460,7 +466,6 @@ section h2::after {
   max-width: 750px;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;
 }
 
 .skill-card {
@@ -474,7 +479,7 @@ section h2::after {
   transition: var(--transition);
 }
 
-/* Halo lumineux au survol — même style que tes cartes projet */
+/* Halo lumineux au survol */
 .skill-card::before {
   content: "";
   position: absolute;
@@ -497,7 +502,6 @@ section h2::after {
   opacity: 1;
 }
 
-/* Icône Font Awesome */
 .skill-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
@@ -510,7 +514,7 @@ section h2::after {
   color: var(--texte);
 }
 
-/* Badge de niveau — même style que ton badge "En cours" sur les projets */
+/* Badge de niveau */
 .skill-level {
   display: inline-block;
   padding: 4px 12px;
@@ -529,6 +533,7 @@ section h2::after {
   line-height: 1.5;
   margin-top: 10px;
 }
+
 
 /* ============================================
    SECTION À PROPOS
@@ -549,18 +554,44 @@ section h2::after {
 }
 
 .about-card p {
-  margin-bottom: 15px;
   color: var(--texte-carte);
+  margin-bottom: 15px;
 }
 
 .about-card p:last-child {
   margin-bottom: 0;
 }
 
+.about-card a {
+  color: var(--couleur-principale);
+  font-weight: 600;
+}
+
+.about-card a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+/* Avatar initiales */
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0 auto 1.5rem;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
 
 /* ============================================
-   SECTION CONTACT + RÉSEAUX SOCIAUX
-   (fusionnés en une seule section dans le HTML)
+   SECTION CONTACT
    ============================================ */
 .contact-card {
   background: var(--bg-moyen);
@@ -575,8 +606,6 @@ section h2::after {
   margin-bottom: 15px;
 }
 
-/* ✅ CORRECTION 2 : une seule règle claire, suppression des 2 doublons
-   et du !important qui se trouvaient à la fin du fichier original */
 .contact-link {
   display: inline-flex;
   align-items: center;
@@ -585,28 +614,103 @@ section h2::after {
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
-  margin-bottom: 20px; /* espace avant les boutons de réseaux sociaux */
+  margin-bottom: 20px;
+}
+
+.contact-link:visited {
+  color: var(--couleur-principale);
 }
 
 .contact-link:hover {
-  color: var(--couleur-principale-fonce);
+  color: #7dd3fc;
   text-decoration: underline;
 }
 
-/* Boutons de réseaux sociaux */
+
+/* ============================================
+   FORMULAIRE DE CONTACT
+   ============================================ */
+.contact-form {
+  margin: 25px 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texte);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  background: var(--bg-sombre);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  color: var(--texte);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Halo au focus (clic sur le champ) */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--couleur-principale);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--texte-discret);
+  font-size: 0.9rem;
+}
+
+/* Séparateur "ou" entre le formulaire et l'email */
+.contact-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--texte-discret);
+  font-size: 0.85rem;
+}
+
+.contact-divider::before,
+.contact-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--bordure);
+}
+
+
+/* ============================================
+   RÉSEAUX SOCIAUX
+   ============================================ */
 .socials {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   margin-top: 20px;
-  /* margin-top (marge extérieure haute) : espace entre l'email et les boutons sociaux */
 }
 
 .social {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
   padding: 12px 20px;
   background: var(--bg-moyen);
@@ -616,14 +720,25 @@ section h2::after {
   transition: all var(--transition);
   overflow: hidden;
 }
- .github {
+
+.social:visited {
+  color: var(--texte);
+}
+
+.github {
   border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.github:visited {
   color: #ffffff;
 }
 
 .github:hover {
   background: #111;
   border-color: #111;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .linkedin {
@@ -631,9 +746,14 @@ section h2::after {
   color: #0a66c2;
 }
 
+.linkedin:visited {
+  color: #0a66c2;
+}
+
 .linkedin:hover {
   background: #0a66c2;
   color: #ffffff;
+  text-decoration: none;
 }
 
 /* Halo lumineux animé au survol */
@@ -673,6 +793,11 @@ section h2::after {
   animation: borderGlow 2s linear infinite;
 }
 
+.social:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
 .social i,
 .social span {
   position: relative;
@@ -685,22 +810,9 @@ section h2::after {
   text-align: center;
 }
 
-.social:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.github:hover {
-  background: #111;
-}
-
-.linkedin:hover {
-  background: #0a66c2;
-}
-
 
 /* ============================================
-   PIED DE PAGE (FOOTER)
+   PIED DE PAGE
    ============================================ */
 footer {
   text-align: center;
@@ -710,7 +822,24 @@ footer {
   margin-top: 50px;
 }
 
-/* EFFET TYPING */
+footer a {
+  color: var(--couleur-principale);
+  font-weight: 600;
+}
+
+footer a:visited {
+  color: var(--couleur-principale);
+}
+
+footer a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+}
+
+
+/* ============================================
+   EFFET TYPING (animation de frappe)
+   ============================================ */
 .typing {
   border-right: 2px solid var(--couleur-principale);
   white-space: nowrap;
@@ -720,13 +849,12 @@ footer {
 
 @keyframes clignotement {
   0%, 100% { border-color: var(--couleur-principale); }
-  50% { border-color: transparent; }
+  50%       { border-color: transparent; }
 }
 
 
 /* ============================================
-   ANIMATIONS (keyframes)
-   keyframes = images clés, les étapes d'une animation
+   ANIMATIONS
    ============================================ */
 
 /* Apparition depuis le bas avec fondu */
@@ -735,180 +863,22 @@ footer {
     opacity: 0;
     transform: translateY(25px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Animation de la bordure lumineuse des boutons sociaux */
+/* Bordure lumineuse tournante sur les boutons sociaux */
 @keyframes borderGlow {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  100% {
-    background-position: 200% 50%;
-  }
-}
-
-/* ============================================
-   CORRECTION VISIBILITÉ LIENS
-   ============================================ */
-
-.about-card a,
-.legal-page a,
-footer a {
-  color: var(--couleur-principale);
-  font-weight: 600;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.about-card a:hover,
-.legal-page a:hover,
-footer a:hover {
-  color: #7dd3fc;
-  text-decoration: underline;
-}
-
-.about-card a:visited,
-.legal-page a:visited,
-footer a:visited {
-  color: var(--couleur-principale);
-}
-
-/* Correction contraste boutons */
-.btn,
-.btn:visited,
-.project-actions .btn,
-.project-actions .btn:visited,
-.overlay-btn,
-.overlay-btn:visited {
-  color: #ffffff !important;
-}
-
-.btn:disabled {
-  color: #ffffff !important;
-  opacity: 1;
-}
-
-/* ============================================
-   FORMULAIRE DE CONTACT (Formspree)
-   ============================================ */
-
-/* Conteneur du formulaire — espace au-dessus et en-dessous */
-.contact-form {
-  margin: 25px 0;
-}
-
-/* Groupe label + champ (input ou textarea) */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  /* column = label au-dessus, champ en-dessous */
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-/* Label (texte au-dessus du champ) */
-.form-group label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--texte);
-}
-
-/* Champs texte et email */
-.form-group input {
-  padding: 12px 15px;
-  background: var(--bg-sombre);
-  border: 1px solid var(--bordure);
-  border-radius: 10px;
-  color: var(--texte);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: var(--transition);
-  outline: none;
-  /* outline: none = supprime le contour bleu natif du navigateur */
-}
-
-/* Zone de texte (message) */
-.form-group textarea {
-  padding: 12px 15px;
-  background: var(--bg-sombre);
-  border: 1px solid var(--bordure);
-  border-radius: 10px;
-  color: var(--texte);
-  font-family: inherit;
-  font-size: 1rem;
-  transition: var(--transition);
-  outline: none;
-  resize: vertical;
-  /* resize: vertical = l'utilisateur peut agrandir la zone vers le bas,
-     mais pas vers les côtés */
-  min-height: 130px;
-}
-
-/* Effet au clic sur un champ — bordure qui s'allume */
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--couleur-principale);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
-  /* box-shadow ici = halo lumineux autour du champ actif */
-}
-
-/* Texte placeholder (indice dans le champ vide) */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: var(--texte-discret);
-  font-size: 0.9rem;
-}
-
-/* Séparateur visuel entre le formulaire et l'adresse email */
-.contact-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 20px 0;
-  color: var(--texte-discret);
-  font-size: 0.85rem;
-}
-
-/* Lignes horizontales de chaque côté du "ou" */
-.contact-divider::before,
-.contact-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: var(--bordure);
-}
-
-/* Avatar initiales — section À propos */
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #0f172a;
-  margin: 0 auto 1.5rem;
-  border: 3px solid #38bdf8;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }
 
 
 /* ============================================
-   RESPONSIVE (adaptatif)
-   Adaptations selon la taille de l'écran
+   RESPONSIVE — TABLETTE (max 768px)
    ============================================ */
-
-/* ✅ CORRECTION 6 : ajout d'un breakpoint tablette (768px) */
-/* Tablette : écrans de 601px à 768px de large */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.8rem;
@@ -919,19 +889,27 @@ footer a:visited {
   }
 
   .nav-links a {
-    font-size: 0.72rem;
-    padding: 4px 5px;
+    font-size: 0.82rem;
+    padding: 6px 8px;
   }
 
   section {
     padding: 50px 20px;
   }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
 }
 
-/* Mobile : écrans jusqu'à 600px de large (téléphones) */
+
+/* ============================================
+   RESPONSIVE — MOBILE (max 600px)
+   ============================================ */
 @media (max-width: 600px) {
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   .hero-content p {
@@ -939,12 +917,20 @@ footer a:visited {
   }
 
   .nav-links {
-    gap: 8px;
+    gap: 6px;
   }
 
   .nav-links a {
-    font-size: 0.72rem;
-    padding: 4px 5px;
+    font-size: 0.75rem;
+    padding: 5px 6px;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 
   .skills-grid {
@@ -955,11 +941,27 @@ footer a:visited {
   .skill-level {
     font-size: 0.7rem;
     padding: 4px 8px;
-    white-space: normal;
-    text-align: center;
   }
 
   .skill-card {
     padding: 20px 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-actions {
+    flex-direction: column;
+  }
+
+  .project-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .socials {
+    flex-direction: column;
   }
 }
