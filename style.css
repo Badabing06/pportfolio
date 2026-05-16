@@ -215,6 +215,7 @@ section h2 {
   margin-bottom: 25px;
   font-size: 1.8rem;
   position: relative;
+  text-align: left;
 }
 
 /* Trait décoratif sous les titres de section */
