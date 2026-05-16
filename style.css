@@ -779,6 +779,21 @@ footer a:visited {
   color: var(--couleur-principale);
 }
 
+/* Correction contraste boutons */
+.btn,
+.btn:visited,
+.project-actions .btn,
+.project-actions .btn:visited,
+.overlay-btn,
+.overlay-btn:visited {
+  color: #ffffff !important;
+}
+
+.btn:disabled {
+  color: #ffffff !important;
+  opacity: 1;
+}
+
 
 /* ============================================
    RESPONSIVE (adaptatif)
