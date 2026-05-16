@@ -207,13 +207,46 @@
       <h2>Contact</h2>
       <div class="contact-card">
         <p>
-          Vous souhaitez échanger, suivre mon évolution ou simplement entrer en contact ? N'hésitez pas à me laisser un
-          message.
+          Vous souhaitez échanger, suivre mon évolution ou simplement entrer en contact ?
+          Remplissez le formulaire ci-dessous ou écrivez-moi directement par email.
         </p>
+
+        <!-- Formulaire Formspree -->
+        <!-- action : l'URL fournie par Formspree pour recevoir les messages -->
+        <!-- method="POST" : envoie les données du formulaire vers Formspree -->
+        <form action="https://formspree.io/f/mwvygyep" method="POST" class="contact-form">
+
+          <!-- Champ Nom -->
+          <div class="form-group">
+            <label for="nom">Votre nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required>
+          </div>
+
+          <!-- Champ Email -->
+          <!-- name="_replyto" est spécial : Formspree l'utilise pour que tu puisses répondre directement -->
+          <div class="form-group">
+            <label for="email">Votre email</label>
+            <input type="email" id="email" name="_replyto" placeholder="jean@exemple.com" required>
+          </div>
+
+          <!-- Champ Message -->
+          <div class="form-group">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+          </div>
+
+          <!-- Bouton d'envoi -->
+          <button type="submit" class="btn">Envoyer le message</button>
+
+        </form>
+        <div class="contact-divider">ou</div>
+
+        <!-- Adresse email en alternative -->
         <a href="mailto:contact@a-adam.be" class="contact-link">
           <i class="fa-solid fa-envelope"></i>
           contact@a-adam.be
         </a>
+
         <div class="socials">
           <a href="https://github.com/Adam-Arnaud" target="_blank" rel="noopener noreferrer" class="social github">
             <i class="fa-brands fa-github"></i>

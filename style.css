@@ -794,6 +794,96 @@ footer a:visited {
   opacity: 1;
 }
 
+/* ============================================
+   FORMULAIRE DE CONTACT (Formspree)
+   ============================================ */
+
+/* Conteneur du formulaire — espace au-dessus et en-dessous */
+.contact-form {
+  margin: 25px 0;
+}
+
+/* Groupe label + champ (input ou textarea) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  /* column = label au-dessus, champ en-dessous */
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+/* Label (texte au-dessus du champ) */
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texte);
+}
+
+/* Champs texte et email */
+.form-group input {
+  padding: 12px 15px;
+  background: var(--bg-sombre);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  color: var(--texte);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+  outline: none;
+  /* outline: none = supprime le contour bleu natif du navigateur */
+}
+
+/* Zone de texte (message) */
+.form-group textarea {
+  padding: 12px 15px;
+  background: var(--bg-sombre);
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  color: var(--texte);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+  outline: none;
+  resize: vertical;
+  /* resize: vertical = l'utilisateur peut agrandir la zone vers le bas,
+     mais pas vers les côtés */
+  min-height: 130px;
+}
+
+/* Effet au clic sur un champ — bordure qui s'allume */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--couleur-principale);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  /* box-shadow ici = halo lumineux autour du champ actif */
+}
+
+/* Texte placeholder (indice dans le champ vide) */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--texte-discret);
+  font-size: 0.9rem;
+}
+
+/* Séparateur visuel entre le formulaire et l'adresse email */
+.contact-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--texte-discret);
+  font-size: 0.85rem;
+}
+
+/* Lignes horizontales de chaque côté du "ou" */
+.contact-divider::before,
+.contact-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--bordure);
+}
+
 
 /* ============================================
    RESPONSIVE (adaptatif)
