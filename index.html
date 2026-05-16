@@ -30,7 +30,8 @@
     content="Portfolio personnel d'Arnaud Adam : projets web, apprentissage HTML, CSS, JavaScript et IA comme support pédagogique.">
   <meta name="twitter:image" content="https://a-adam.be/images/site-portfolio-preview.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -39,7 +40,7 @@
 
 <body>
 
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Navigation principale">
     <div class="nav-links">
       <a href="#accueil">Accueil</a>
       <a href="#projets">Projets</a>
@@ -52,7 +53,7 @@
   <header id="accueil" class="hero">
     <div class="hero-content">
       <h1 class="hero-title">Arnaud Adam</h1>
-      <p><span class="typing"></span></p>
+      <p><span class="typing">Développeur web junior en reconversion</span></p>
       <div class="hero-buttons">
         <a href="#projets" class="btn hero-btn">Voir mes projets</a>
         <a href="#contact" class="btn btn-secondary">Me contacter</a>
@@ -74,7 +75,9 @@
         <div class="card project-card">
           <div class="project-image">
             <img src="images/site-photographe.jpg"
-              alt="Capture d'écran du projet de site pour photographe, réalisé en HTML et CSS">
+              alt="Capture d'écran du projet de site pour photographe, réalisé en HTML et CSS" loading="lazy"
+              width="800" height="450">
+
             <div class="project-overlay">
               <a href="https://adam-arnaud.github.io/robbie-lens-photographe/" target="_blank" rel="noopener noreferrer"
                 class="overlay-btn">Voir le site</a>
@@ -94,13 +97,14 @@
           <div class="project-actions">
             <a href="https://adam-arnaud.github.io/robbie-lens-photographe/" target="_blank" rel="noopener noreferrer"
               class="btn">Voir le site</a>
-            <button class="btn" disabled>Code non public</button>
+            <button class="btn" disabled aria-disabled="true">Code non public</button>
           </div>
         </div>
         <div class="card project-card">
           <div class="project-image">
             <img src="images/site-tresors-des-fagnes.png"
-              alt="Capture d'écran du site Trésors des Fagnes, chatterie Sacré de Birmanie">
+              alt="Capture d'écran du site Trésors des Fagnes, chatterie Sacré de Birmanie" loading="lazy" width="800"
+              height="450">
             <div class="project-overlay">
               <a href="https://adam-arnaud.github.io/tresors-des-fagnes/" target="_blank" rel="noopener noreferrer"
                 class="overlay-btn">Voir le site</a>
@@ -120,7 +124,7 @@
           <div class="project-actions">
             <a href="https://adam-arnaud.github.io/tresors-des-fagnes/" target="_blank" rel="noopener noreferrer"
               class="btn">Voir le site</a>
-            <button class="btn" disabled>Code non public</button>
+            <button class="btn" disabled aria-disabled="true">Code non public</button>
           </div>
         </div>
 
