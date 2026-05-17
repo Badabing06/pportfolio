@@ -469,9 +469,11 @@ section h2::after {
   max-width: 750px;
   margin-left: auto;
   margin-right: auto;
+  justify-items: center;
 }
 
 .skill-card {
+  flex: 0 1 210px;
   position: relative;
   overflow: hidden;
   background: linear-gradient(145deg, var(--bg-moyen), var(--bg-sombre));
@@ -573,6 +575,35 @@ section h2::after {
 .about-card a:hover {
   color: #7dd3fc;
   text-decoration: underline;
+}
+
+/* Mise en page côte à côte */
+.about-layout {
+  display: flex;
+  gap: 35px;
+  align-items: flex-start;
+}
+
+/* Colonne gauche : avatar */
+.about-avatar {
+  flex-shrink: 0;  /* empêche l'avatar de rétrécir */
+  text-align: center;
+}
+
+/* Nom sous l'avatar */
+.avatar-label {
+  margin-top: 10px !important;
+  font-weight: 600;
+  color: var(--couleur-principale) !important;
+  font-size: 0.9rem;
+}
+
+/* Sur mobile : on empile à la verticale */
+@media (max-width: 600px) {
+  .about-layout {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Avatar initiales */
