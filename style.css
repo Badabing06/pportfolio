@@ -1054,13 +1054,14 @@ footer a:hover {
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2.2rem;
-    .terminal {
-  max-width: 100%;
-}
+  }
 
-.typing {
-  font-size: 0.85rem;
-}
+  .terminal {
+    max-width: 100%;
+  }
+
+  .typing {
+    font-size: 0.85rem;
   }
 
   .hero-content p {
@@ -1075,6 +1076,7 @@ footer a:hover {
     font-size: 0.75rem;
     padding: 5px 6px;
   }
+}
 
   section {
     padding: 40px 15px;
