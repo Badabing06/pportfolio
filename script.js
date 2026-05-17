@@ -1,26 +1,52 @@
 // =============================================
-// Animation de frappe (typing) — sous-titre
+// Animation de frappe (typing) — plusieurs phrases
 // =============================================
+const phrases = [
+  "Développeur web junior en reconversion",
+  "Passionné par le code et l'IA",
+  "Apprenant chaque jour un peu plus..."
+];
 
-const texte = "Développeur web junior en reconversion";
 const element = document.querySelector(".typing");
-let index = 0;
+let indexPhrase = 0;  // quelle phrase on affiche
+let indexLettre = 0;  // quelle lettre on est en train d'écrire
+let effacement = false; // est-ce qu'on efface ou on écrit ?
 
-// On vide le texte de repli avant de démarrer
-// (évite d'afficher deux fois le texte au chargement)
 element.textContent = "";
 
-function ecrire() {
-  if (index < texte.length) {
-    element.textContent += texte[index]; // ajoute une lettre
-    index++;
-    setTimeout(ecrire, 80); // attend 80ms puis recommence
+function animer() {
+  const phraseActuelle = phrases[indexPhrase];
+
+  if (!effacement) {
+    // --- MODE ÉCRITURE ---
+    element.textContent = phraseActuelle.slice(0, indexLettre + 1);
+    indexLettre++;
+
+    if (indexLettre === phraseActuelle.length) {
+      // Phrase complète → on attend 2 secondes puis on efface
+      effacement = true;
+      setTimeout(animer, 2000);
+      return;
+    }
+    setTimeout(animer, 80);
+
+  } else {
+    // --- MODE EFFACEMENT ---
+    element.textContent = phraseActuelle.slice(0, indexLettre - 1);
+    indexLettre--;
+
+    if (indexLettre === 0) {
+      // Phrase effacée → on passe à la suivante
+      effacement = false;
+      indexPhrase = (indexPhrase + 1) % phrases.length;
+      setTimeout(animer, 500);
+      return;
+    }
+    setTimeout(animer, 40); // efface plus vite qu'on écrit
   }
 }
 
-// Démarre l'animation après 0.5 seconde
-// (laisse le temps à la page de s'afficher d'abord)
-setTimeout(ecrire, 500);
+setTimeout(animer, 500);
 
 // =============================================
 // Bouton retour en haut
