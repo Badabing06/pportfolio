@@ -919,6 +919,45 @@ footer a:hover {
   100% { background-position: 200% 50%; }
 }
 
+/* ============================================
+   BOUTON RETOUR EN HAUT
+   ============================================ */
+.btn-top {
+  position: fixed;        /* reste toujours visible, même en scrollant */
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;     /* cercle */
+  background: linear-gradient(135deg, var(--couleur-principale), var(--couleur-principale-fonce));
+  color: var(--bg-sombre);
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+  transition: var(--transition);
+
+  /* Caché par défaut */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+/* Quand il devient visible */
+.btn-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.btn-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
+}
+
 
 /* ============================================
    RESPONSIVE — TABLETTE (max 768px)

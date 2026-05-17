@@ -21,3 +21,25 @@ function ecrire() {
 // Démarre l'animation après 0.5 seconde
 // (laisse le temps à la page de s'afficher d'abord)
 setTimeout(ecrire, 500);
+
+// =============================================
+// Bouton retour en haut
+// =============================================
+document.addEventListener("DOMContentLoaded", function () {
+  const btnTop = document.getElementById("btnTop");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      btnTop.classList.add("visible");
+    } else {
+      btnTop.classList.remove("visible");
+    }
+  });
+
+  btnTop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
