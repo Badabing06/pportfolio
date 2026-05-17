@@ -1052,20 +1052,32 @@ footer a:hover {
    RESPONSIVE — MOBILE (max 600px)
    ============================================ */
 @media (max-width: 600px) {
+  .hero {
+    padding: 40px 20px;
+  }
+
   .hero-title {
     font-size: 2.2rem;
   }
 
+  .hero-content p {
+    font-size: 1rem;
+  }
+
   .terminal {
-    max-width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  .terminal-corps {
+    padding: 15px;
+    overflow: hidden;
   }
 
   .typing {
-    font-size: 0.85rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .nav-links {
@@ -1076,7 +1088,6 @@ footer a:hover {
     font-size: 0.75rem;
     padding: 5px 6px;
   }
-}
 
   section {
     padding: 40px 15px;
@@ -1089,15 +1100,6 @@ footer a:hover {
   .skills-grid {
     grid-template-columns: 1fr;
     max-width: 100%;
-  }
-
-  .skill-level {
-    font-size: 0.7rem;
-    padding: 4px 8px;
-  }
-
-  .skill-card {
-    padding: 20px 15px;
   }
 
   .hero-buttons {
