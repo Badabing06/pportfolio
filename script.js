@@ -2,7 +2,7 @@
 // Animation de frappe (typing) — plusieurs phrases
 // =============================================
 const phrases = [
-  "Développeur web junior en reconversion",
+  "Dév. web junior en reconversion",
   "Passionné par le code et l'IA",
   "Apprenant chaque jour un peu plus..."
 ];
