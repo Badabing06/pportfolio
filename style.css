@@ -1001,6 +1001,7 @@ footer a:hover {
   align-items: center;
   gap: 10px;
   min-height: 60px;
+   overflow: hidden;
 }
 
 /* Le > vert devant le texte */
@@ -1053,6 +1054,13 @@ footer a:hover {
 @media (max-width: 600px) {
   .hero-title {
     font-size: 2.2rem;
+    .terminal {
+  max-width: 100%;
+}
+
+.typing {
+  font-size: 0.85rem;
+}
   }
 
   .hero-content p {
