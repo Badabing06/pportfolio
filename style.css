@@ -1070,9 +1070,9 @@ footer a:hover {
   }
 
   .terminal-corps {
-    padding: 15px;
-    overflow: hidden;
-  }
+  padding: 10px;
+  overflow: hidden;
+}
 
   .typing {
     font-size: 0.8rem;
