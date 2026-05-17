@@ -5,7 +5,7 @@
    uniquement --couleur-principale ici.
    ============================================ */
 :root {
-  --couleur-principale:       #38bdf8; /* bleu clair — couleur accent */
+  --couleur-principale:       #10b981;
   --couleur-principale-fonce: #0ea5e9; /* bleu plus foncé */
   --bg-sombre:                #0f172a; /* fond principal très sombre */
   --bg-moyen:                 #1e293b; /* fond des cartes */
