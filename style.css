@@ -958,6 +958,73 @@ footer a:hover {
   box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
 }
 
+/* ============================================
+   TERMINAL STYLE VS CODE
+   ============================================ */
+.terminal {
+  background: #1e1e1e;        /* fond sombre style VS Code */
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 25px;
+  max-width: 500px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+/* Barre du haut avec les 3 points */
+.terminal-barre {
+  background: #323233;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Les 3 petits points colorés */
+.terminal-point {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.rouge  { background: #ff5f57; }
+.jaune  { background: #febc2e; }
+.vert   { background: #28c840; }
+
+/* Titre "terminal" centré dans la barre */
+.terminal-titre {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+/* Zone où s'écrit le texte */
+.terminal-corps {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 60px;
+}
+
+/* Le > vert devant le texte */
+.terminal-prompt {
+  color: #4ec9b0;
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Le texte qui s'anime */
+.typing {
+  color: #d4d4d4;
+  font-family: monospace;
+  font-size: 1rem;
+}
+
 
 /* ============================================
    RESPONSIVE — TABLETTE (max 768px)
